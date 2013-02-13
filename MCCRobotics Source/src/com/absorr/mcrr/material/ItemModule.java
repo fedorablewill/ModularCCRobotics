@@ -14,12 +14,24 @@ public abstract class ItemModule extends Item
 	 * 3 - Inventory
 	 */
 	public static int type;
+	
+	public static int textureX;
+	public static int textureY;
 
-	public ItemModule(int par1, int par2) 
+	/**
+	 * Creates the module. Use this to create your module
+	 * @param par1 Item ID
+	 * @param par2 Module Type
+	 * @param par3 Texture x
+	 * @param par4 Texture y
+	 */
+	public ItemModule(int par1, int par2, int par3, int par4) 
 	{
 		super(par1);
 		this.maxStackSize = 1;
 		this.type = par2;
+		this.textureX = par3;
+		this.textureY = par4;
 	}
 	
 	/**

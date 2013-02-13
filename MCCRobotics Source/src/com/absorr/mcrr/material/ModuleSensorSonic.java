@@ -8,12 +8,12 @@ import net.minecraft.util.AxisAlignedBB;
 
 import com.absorr.mcrr.entity.EntityRobot;
 
-public class ModuleSensorIR extends ItemModule
+public class ModuleSensorSonic extends ItemModule
 {
 
-	public ModuleSensorIR(int par1) 
+	public ModuleSensorSonic(int par1) 
 	{
-		super(par1, 0);
+		super(par1, 0, 10, 7);
 	}
 
 	@Override
