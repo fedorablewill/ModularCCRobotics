@@ -1,0 +1,18 @@
+[
+{
+  "modid" : "ModCCRobot",
+  "name" : "Modular ComputerCraft Robotics",
+  "version" : "0.0.0.001",
+  "url" : "http://absorr.pcriot.com/mod/MCCRobotics.html",
+  "credits" : "Nuclear Powered Studios",
+  "authors": [
+    "Absorr", "Mikeyjd25"
+  ],
+  "description": "A ComputerCraft addon that adds a robot entity that can have all sorts of servos, motors, sensors, and more added to it!",
+  "logoFile" : "/absorr/morered/moreredlogo.png",
+  "updateUrl" : "http://absorr.pcriot.com/mods/mod_moreRed.html",
+  "parent" : "ComputerCraft",
+  "screenshots": [
+  ]
+}
+]
