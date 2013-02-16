@@ -11,6 +11,7 @@ public class EntityRobot extends Entity
 {
 
 	public float width;
+	public float length;
 	public float height;
 	public ItemModule sensor1;
 	public ItemModule sensor2;

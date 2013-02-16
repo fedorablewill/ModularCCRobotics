@@ -10,16 +10,16 @@ public class ModelRobot extends ModelBase
     ModelRenderer Base;
     ModelRenderer Inventory;
     ModelRenderer Sensor;
-    Entity entity;
+    EntityRobot entity;
   
-  public ModelRobot(Entity entity)
+  public ModelRobot(EntityRobot entity)
   {
 	  this.entity = entity;
     textureWidth = 256;
     textureHeight = 256;
     
       Base = new ModelRenderer(this, 0, 84);
-      Base.addBox(0F, 0F, 0F, 16, 16, 8);
+      Base.addBox(0F, 0F, 0F, (int) entity.width * 16, (int) entity.height * 16, (int) entity.length * 16);
       Base.setRotationPoint(-8F, 0F, -8F);
       Base.setTextureSize(256, 256);
       Base.mirror = true;
@@ -30,12 +30,15 @@ public class ModelRobot extends ModelBase
       Inventory.setTextureSize(256, 256);
       Inventory.mirror = true;
       setRotation(Inventory, 0F, 0F, 0F);
-      Sensor = new ModelRenderer(this, 0, 0);
-      Sensor.addBox(0F, 0F, 0F, 2, 2, 4);
-      Sensor.setRotationPoint(-6F, -2F, -7F);
-      Sensor.setTextureSize(256, 256);
-      Sensor.mirror = true;
-      setRotation(Sensor, 0F, 0F, 0F);
+      if (entity.sensor1 != null)
+      {
+	      Sensor = new ModelRenderer(this, entity.sensor1.textureX, entity.sensor1.textureY);
+	      Sensor.addBox(0F, 0F, 0F, 2, 2, 4);
+	      Sensor.setRotationPoint(-6F, -2F, -7F);
+	      Sensor.setTextureSize(256, 256);
+	      Sensor.mirror = true;
+	      setRotation(Sensor, 0F, 0F, 0F);
+      }
   }
   
   public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
