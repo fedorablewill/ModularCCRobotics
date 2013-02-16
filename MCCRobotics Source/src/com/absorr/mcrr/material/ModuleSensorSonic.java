@@ -1,5 +1,6 @@
 package com.absorr.mcrr.material;
 
+import java.awt.Polygon;
 import java.util.List;
 
 import net.minecraft.block.Block;
@@ -25,9 +26,18 @@ public class ModuleSensorSonic extends ItemModule
 		double var1 = par1Robot.posX;
 		double var2 = par1Robot.posY;
 		double var3 = par1Robot.posZ;
+		double angle = par1Robot.rotationYaw;
 		float var7 = 0.125F;
-		AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox((double)((float)var1 + var7), (double)var2, (double)((float)var3 + var7), (double)((float)(var1 + 10) - var7), (double)var2 + 3.25D, (double)((float)(var3 + 10) - var7));
-		//TODO: Modify AABB based on direction facing
+		int x2 = (int) (var1+((var1 + 9)-var1)*Math.cos(angle)-((var3 + 10)-var3)*Math.sin(angle));
+		int y2 = (int) (var3+((var1 + 9)-var1)*Math.sin(angle)+((var3 + 10)-var3)*Math.cos(angle));
+		int x3 = (int) (var1+((var1 + 0)-var1)*Math.cos(angle)-((var3 + 20)-var3)*Math.sin(angle));
+		int y3 = (int) (var3+((var1 + 0)-var1)*Math.sin(angle)+((var3 + 20)-var3)*Math.cos(angle));
+		int x4 = (int) (var1+((var1 - 9)-var1)*Math.cos(angle)-((var3 + 10)-var3)*Math.sin(angle));
+		int y4 = (int) (var3+((var1 - 9)-var1)*Math.sin(angle)+((var3 + 10)-var3)*Math.cos(angle));
+		int[] polyX = {(int) var1, x2, x3, x4};
+		int[] polyY = {(int) var3, y2, y3, y4};
+		Polygon poly = new Polygon(polyX,polyY,4);
+		AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox((double)((float)(var1 - 20)+ var7), (double)var2, (double)((float)(var3 - 20)+ var7), (double)((float)(var1 + 20) - var7), (double)var2 + 3.25D, (double)((float)(var3 + 20) - var7));
 		List var4 = par1Robot.worldObj.getEntitiesWithinAABB(Entity.class, aabb);
 		if(var4.isEmpty())
 			return 0;
@@ -42,7 +52,7 @@ public class ModuleSensorSonic extends ItemModule
 			double var10 = var8.posY;
 			double var11 = var8.posZ;
 			double d = Math.sqrt(Math.pow(var9 - var1, 2) + Math.pow(var10 - var2, 2) + Math.pow(var11 - var3, 2));
-			if (d < distance)
+			if (d < distance && poly.contains(var9,var11))
 				distance = d;
 		}
 		double var12 = this.getClosestBlockInAABB(aabb, par1Robot.worldObj, par1Robot);
