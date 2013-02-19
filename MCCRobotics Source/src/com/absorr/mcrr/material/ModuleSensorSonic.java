@@ -43,7 +43,7 @@ public class ModuleSensorSonic extends ItemModule
 			return 0;
 		EntityLiving var5;
 		Object[] var6 = var4.toArray();
-		double distance = 0;
+		double distance = 11;
 		int entry = 0;
 		for(Object ent : var6)
 		{
