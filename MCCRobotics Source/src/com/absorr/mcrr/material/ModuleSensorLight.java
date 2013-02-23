@@ -5,7 +5,7 @@ import com.absorr.mcrr.entity.EntityRobot;
 public class ModuleSensorLight extends ItemModule
 {
 
-	public ModuleSensorLight(int par1, int par2, int par3, Class par4) 
+	public ModuleSensorLight(int par1) 
 	{
 		super(par1, 0, 3, ModuleSensorLight.class);
 	}
