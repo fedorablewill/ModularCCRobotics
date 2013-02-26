@@ -3,5 +3,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Minecraft"/>
+	<classpathentry kind="lib" path="C:/Users/Will/Moding/Minecraft 1.4.6/cc1.5deobf.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

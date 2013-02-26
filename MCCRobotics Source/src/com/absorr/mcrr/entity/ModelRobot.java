@@ -30,9 +30,9 @@ public class ModelRobot extends ModelBase
       Inventory.setTextureSize(256, 256);
       Inventory.mirror = true;
       setRotation(Inventory, 0F, 0F, 0F);
-      if (entity.sensor1 != null)
+      if (entity.sensors[0] != null)
       {
-	      Sensor = new ModelRenderer(this, entity.sensor1.textureX, entity.sensor1.textureY);
+	      Sensor = new ModelRenderer(this, entity.sensors[0].textureX, entity.sensors[0].textureY);
 	      Sensor.addBox(0F, 0F, 0F, 2, 2, 4);
 	      Sensor.setRotationPoint(-6F, -2F, -7F);
 	      Sensor.setTextureSize(256, 256);
