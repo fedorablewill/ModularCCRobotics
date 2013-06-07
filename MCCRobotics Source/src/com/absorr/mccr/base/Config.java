@@ -18,12 +18,12 @@ public class Config
 	public static void loadConfig()
 	{
 		configuration.load();
-		servoID = Integer.parseInt(configuration.getItem(Configuration.CATEGORY_ITEM, "servo", 12560).value);
-		motorID = Integer.parseInt(configuration.getItem(Configuration.CATEGORY_ITEM, "motor", 12561).value);
-		irID = Integer.parseInt(configuration.getItem(Configuration.CATEGORY_ITEM, "sensorIR", 12562).value);
-		sonicID = Integer.parseInt(configuration.getItem(Configuration.CATEGORY_ITEM, "sensorSonic", 12563).value);
-		lightID = Integer.parseInt(configuration.getItem(Configuration.CATEGORY_ITEM, "sensorLight", 12564).value);
-		touchID = Integer.parseInt(configuration.getItem(Configuration.CATEGORY_ITEM, "sensorTouch", 12565).value);
+		servoID = configuration.getItem(Configuration.CATEGORY_ITEM, "servo", 12560).getInt();
+		motorID = configuration.getItem(Configuration.CATEGORY_ITEM, "motor", 12561).getInt();
+		irID = configuration.getItem(Configuration.CATEGORY_ITEM, "sensorIR", 12562).getInt();
+		sonicID = configuration.getItem(Configuration.CATEGORY_ITEM, "sensorSonic", 12563).getInt();
+		lightID = configuration.getItem(Configuration.CATEGORY_ITEM, "sensorLight", 12564).getInt();
+		touchID = configuration.getItem(Configuration.CATEGORY_ITEM, "sensorTouch", 12565).getInt();
 		configuration.save();
 	}
 }

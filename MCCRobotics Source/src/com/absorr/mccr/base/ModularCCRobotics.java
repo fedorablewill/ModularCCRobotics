@@ -58,12 +58,12 @@ public class ModularCCRobotics
 		EntityRegistry.registerModEntity(EntityRobot.class, "Modular Robot", 1, instance, 40, 3, true);
 		LanguageRegistry.instance().addStringLocalization("com.absorr.mccr.entity.EntityRobot.name", "Robot");
 		
-		servo = new Item(Config.servoID).setItemName("servo").setIconIndex(0).setTextureFile(proxy.itemPic);
-		motor = new Item(Config.motorID).setItemName("motor").setIconIndex(1).setTextureFile(proxy.itemPic);
-		sensorIR = new ModuleSensorIR(Config.irID).setItemName("sensorIR").setIconIndex(2).setTextureFile(proxy.itemPic);
-		sensorTouch = new ModuleSensorTouch(Config.touchID).setItemName("sensorTouch").setIconIndex(3).setTextureFile(proxy.itemPic);
-		sensorLight = new ModuleSensorLight(Config.lightID).setItemName("sensorLight").setIconIndex(4).setTextureFile(proxy.itemPic);
-		sensorSonic = new ModuleSensorSonic(Config.sonicID).setItemName("sensorUltrasonic").setIconIndex(5).setTextureFile(proxy.itemPic);
+		servo = new Item(Config.servoID).setUnlocalizedName("servo");
+		motor = new Item(Config.motorID).setUnlocalizedName("motor");
+		sensorIR = new ModuleSensorIR(Config.irID).setUnlocalizedName("sensorIR");
+		sensorTouch = new ModuleSensorTouch(Config.touchID).setUnlocalizedName("sensorTouch");
+		sensorLight = new ModuleSensorLight(Config.lightID).setUnlocalizedName("sensorLight");
+		sensorSonic = new ModuleSensorSonic(Config.sonicID).setUnlocalizedName("sensorUltrasonic");
 		
 		loadMaterials();
 	}
