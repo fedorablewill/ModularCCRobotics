@@ -24,8 +24,7 @@ public class ModuleSensorTouch extends ItemModule
 		float var4 = 0.125F;
 		AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox((double)((float)var1 + var4), (double)var2, (double)((float)var3 + var4), (double)((float)(var1 + 0.75) - var4), (double)var2 + 1D, (double)((float)(var3 + 0.25) - var4));
 		List var5 = par1Robot.worldObj.getEntitiesWithinAABB(Entity.class, aabb);
-		boolean var6 = par1Robot.worldObj.isAABBNonEmpty(aabb);
-		if (var5.isEmpty() || !var6)
+		if (var5.isEmpty())
 			return 0;
 		else
 			return 1;

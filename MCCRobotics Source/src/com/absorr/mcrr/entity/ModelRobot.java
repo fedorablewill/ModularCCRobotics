@@ -44,7 +44,7 @@ public class ModelRobot extends ModelBase
   public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
   {
     super.render(entity, f, f1, f2, f3, f4, f5);
-    setRotationAngles(f, f1, f2, f3, f4, f5);
+    setRotationAngles(f, f1, f2, f3, f4, f5, entity);
     Base.render(f5);
     Inventory.render(f5);
     Sensor.render(f5);
@@ -57,9 +57,10 @@ public class ModelRobot extends ModelBase
     model.rotateAngleZ = z;
   }
   
-  public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5)
+  @Override
+  public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity)
   {
-    super.setRotationAngles(f, f1, f2, f3, f4, f5, this.entity);
+    super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
   }
 
 }

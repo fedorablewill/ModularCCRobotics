@@ -23,17 +23,24 @@ public class EntityRobot extends Entity
 	public ItemModule[] servos;
 	public ItemModule[] upgrades;
 	public ItemStack[] inventory;
+	public float id;
 
-	public EntityRobot(World par1World, float par2, float par3) 
+	public EntityRobot(World par1World) 
 	{
 		super(par1World);
+		this.setSize(0.25F, 0.25F);
+	}
+	
+	public EntityRobot(World par1World, double par2, double par4, double par6) 
+	{
+		this(par1World);
+        this.setSize(this.width, this.height);
+        this.setPosition(par2, par4, par6);
+        this.yOffset = 0.0F;
 	}
 
 	@Override
-	protected void entityInit() {
-		// TODO Auto-generated method stub
-		
-	}
+	protected void entityInit() {}
 
 	@Override
 	protected void readEntityFromNBT(NBTTagCompound par1NBTTagCompound) 
@@ -42,19 +49,33 @@ public class EntityRobot extends Entity
         this.height = par1NBTTagCompound.getFloat("Height");
         this.width = par1NBTTagCompound.getFloat("Width");
         this.length = par1NBTTagCompound.getFloat("Length");
+        this.id = par1NBTTagCompound.getFloat("ID");
         
-        NBTTagList var2 = par1NBTTagCompound.getTagList("Sensors");
+        this.sensors = (ItemModule[]) this.getItemArrayFromNBT(par1NBTTagCompound, "Sensors");
+        this.motors = (ItemModule[]) this.getItemArrayFromNBT(par1NBTTagCompound, "Motors");
+        this.servos = (ItemModule[]) this.getItemArrayFromNBT(par1NBTTagCompound, "Servos");
+        this.upgrades = (ItemModule[]) this.getItemArrayFromNBT(par1NBTTagCompound, "Upgrades");
+	}
+	
+	@SuppressWarnings("null")
+	private Item[] getItemArrayFromNBT(NBTTagCompound par1NBTTagCompound, String par2)
+	{
+		NBTTagList var2 = par1NBTTagCompound.getTagList(par2);
+		
+		Item[] a = null;
 
         for (int var3 = 0; var3 < var2.tagCount(); ++var3)
         {
             NBTTagCompound var4 = (NBTTagCompound)var2.tagAt(var3);
             int var5 = var4.getByte("Slot") & 255;
 
-            if (var5 >= 0 && var5 < this.sensors.length)
+            if (var5 >= 0 && var5 < a.length)
             {
-                this.sensors[var3] = (ItemModule) Item.itemsList[256 + var5];
+                a[var3] = (ItemModule) Item.itemsList[256 + var5];
             }
         }
+        
+        return a;
 	}
 
 	@Override
@@ -64,6 +85,7 @@ public class EntityRobot extends Entity
         var1.setFloat("Height", this.height);
         var1.setFloat("Width", this.width);
         var1.setFloat("Length", this.length);
+        var1.setFloat("ID", this.id);
         
         NBTTagList var2 = new NBTTagList();
 
